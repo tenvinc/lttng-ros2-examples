@@ -1,0 +1,8 @@
+# Ignore vscode related files
+*/.vscode/*
+*.code-workspace
+.history/
+.vsix
+
+# Ignore traces folder
+traces/

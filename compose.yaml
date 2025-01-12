@@ -1,0 +1,17 @@
+services:
+  tracing:
+    image: tracing-dev:latest
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ~/.Xauthority:/root/.Xauthority
+      - ./pkgs:/home/tracer/trace_ws/src/pkgs
+    environment:
+      - DISPLAY=${DISPLAY}
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    tty: true
